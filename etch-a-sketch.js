@@ -1,33 +1,40 @@
 const container = document.querySelector(".container");
-console.log(container);
-var gridSize = 50;
+const userButton = document.querySelector("button");
+//var gridSize = 12;
+generateGrid(14);
 
-for (let i = 0; i<gridSize; i++)
+userButton.addEventListener("click", (e) =>
+{   
+    // prompt("Enter a choice:")
+    //let response = prompt("User Choice");
+    //let userGrid =  Math.min(parseInt(response),100);
+});
+
+
+function generateGrid(gridSize)
 {
-    const gridDiv = document.createElement("div");
-    gridDiv.style.flexDirection = "column";
-    gridDiv.style.flex = "auto";
-    gridDiv.style.display = "flex";
 
-    for (let j = 0; j<gridSize ; j++)
+    for (let i = 0; i<gridSize; i++)
         {
-            const grid = document.createElement("div");
-
-            grid.style.border = "0.05px dotted gray";
-            grid.style.flex = "1";
-            grid.classList.add("grid");
-
-
-            gridDiv.appendChild(grid);      
+            const parent = document.createElement("div");
+            parent.classList.add("parent");
+            parent.style.flexDirection = "column";
+            parent.style.flex = "auto";
+            parent.style.display = "flex";
+        
+            for (let j = 0; j<gridSize ; j++)
+                {
+                    const grid = document.createElement("div");
+                    // grid.classList.add("nmchild");
+                    grid.style.border = "0.05px dotted gray";
+                    grid.style.flex = "1";
+                    parent.appendChild(grid);      
+                }
+            container.appendChild(parent);
         }
-    container.appendChild(gridDiv);
 }
 
+
 container.addEventListener("mouseover", (e) =>
-    {
-    
-    
-        e.target.style.backgroundColor ="aqua";
-        console.log("im hovering");}
-    
-    );
+e.target.style.backgroundColor ="aqua" );
+
