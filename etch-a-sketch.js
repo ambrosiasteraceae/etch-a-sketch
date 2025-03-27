@@ -1,8 +1,7 @@
 const container = document.querySelector(".container");
 console.log(container);
-var gridSize = 8;
+var gridSize = 50;
 
-var innerHeight = 960/8
 for (let i = 0; i<gridSize; i++)
 {
     const gridDiv = document.createElement("div");
@@ -10,19 +9,25 @@ for (let i = 0; i<gridSize; i++)
     gridDiv.style.flex = "auto";
     gridDiv.style.display = "flex";
 
-
     for (let j = 0; j<gridSize ; j++)
         {
             const grid = document.createElement("div");
-            //grid.style.backgroundColor = "red";
-            grid.style.borderBlockColor = "black";
-            grid.style.border = "1px solid black";
-            grid.style.flex = "1"
-            // grid.style.justifyContent = "space-between"
-            grid.textContent = "A"
-            gridDiv.appendChild(grid);
-            // gridDiv.style
-            
+
+            grid.style.border = "0.05px dotted gray";
+            grid.style.flex = "1";
+            grid.classList.add("grid");
+
+
+            gridDiv.appendChild(grid);      
         }
     container.appendChild(gridDiv);
 }
+
+container.addEventListener("mouseover", (e) =>
+    {
+    
+    
+        e.target.style.backgroundColor ="aqua";
+        console.log("im hovering");}
+    
+    );

@@ -2,10 +2,22 @@
     display:flex;
     width : 960px;
     height : 960px;
+    /* padding:25px; */
+    
     /* flex-wrap: wrap; */
-    justify-content: space-between;
-     align-items: space-between; 
+    /* justify-content: space-between;
+     align-items: space-between;  */
     /* //align-items: center; */
     /* background-color: grey; */
 
 }
+
+.grid{
+    border :"0.05px dotted gray";
+    flex : "1";
+}
+/* 
+.grid:hover{
+    background-color: aqua;
+    transition: all 1s ease-out;
+} */
