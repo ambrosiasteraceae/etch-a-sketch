@@ -5,10 +5,29 @@ generateGrid(14);
 
 userButton.addEventListener("click", (e) =>
 {   
-    // prompt("Enter a choice:")
-    //let response = prompt("User Choice");
-    //let userGrid =  Math.min(parseInt(response),100);
+    let response = prompt("User Choice");
+    let userGrid =  Math.min(parseInt(response),100);
+    console.log(userGrid);
+
+    const bin = document.querySelectorAll(".parent");
+    console.log(bin);
+    bin.forEach(item => item.remove())
+
+    generateGrid(userGrid);
+
+
+
 });
+function reset () {
+    while (container.firstChild)
+        {
+            it+=1;
+            container.remove(container.lastElementChild);
+            if (it > 500)
+                break;
+        }
+            
+}
 
 
 function generateGrid(gridSize)
@@ -25,7 +44,7 @@ function generateGrid(gridSize)
             for (let j = 0; j<gridSize ; j++)
                 {
                     const grid = document.createElement("div");
-                    // grid.classList.add("nmchild");
+                    grid.classList.add("nmchild");
                     grid.style.border = "0.05px dotted gray";
                     grid.style.flex = "1";
                     parent.appendChild(grid);      
@@ -36,5 +55,5 @@ function generateGrid(gridSize)
 
 
 container.addEventListener("mouseover", (e) =>
-e.target.style.backgroundColor ="aqua" );
+e.target.style.backgroundColor =`rgb(${102+Math.random()*154} ${102+Math.random()*154} 255)`);
 
