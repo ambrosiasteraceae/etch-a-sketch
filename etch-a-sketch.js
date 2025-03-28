@@ -7,25 +7,24 @@ userButton.addEventListener("click", (e) =>
 {   
     let response = prompt("User Choice");
     let userGrid =  Math.min(parseInt(response),100);
-    console.log(userGrid);
 
-    const bin = document.querySelectorAll(".parent");
-    console.log(bin);
-    bin.forEach(item => item.remove())
 
+    reset();
     generateGrid(userGrid);
 
 
 
 });
 function reset () {
-    while (container.firstChild)
-        {
-            it+=1;
-            container.remove(container.lastElementChild);
-            if (it > 500)
-                break;
-        }
+    // while (container.firstChild)
+    //     {
+    //         it+=1;
+    //         container.remove(container.lastElementChild);
+    //         if (it > 500)
+    //             break;
+    //     }
+    const bin = document.querySelectorAll(".parent");
+    bin.forEach(item => item.remove())
             
 }
 
@@ -47,6 +46,7 @@ function generateGrid(gridSize)
                     grid.classList.add("nmchild");
                     grid.style.border = "0.05px dotted gray";
                     grid.style.flex = "1";
+                    grid.style.opacity = 0.0;
                     parent.appendChild(grid);      
                 }
             container.appendChild(parent);
@@ -55,5 +55,18 @@ function generateGrid(gridSize)
 
 
 container.addEventListener("mouseover", (e) =>
-e.target.style.backgroundColor =`rgb(${102+Math.random()*154} ${102+Math.random()*154} 255)`);
+{
+    let red = 102+Math.random()*154;
+    let green = 102+Math.random()*154;
+    let currentOpacity = e.target.style.opacity; 
+    let newOpacity = Math.min(parseFloat(currentOpacity)+0.1, 1.0);
+    console.log(newOpacity);
+    
+    e.target.style.backgroundColor =`rgb(${red} ${green} 255)`
+    // if(newOpacity == 1.0)
+    //     e.target.style.backgroundColor = 'black';
+    e.target.style.opacity = String(newOpacity);
+    
+    console.log(e.target.style.opacity)
 
+});
